@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Banner from '../../components/Banner'
 
 function Profile() {
   return (
@@ -7,9 +8,7 @@ function Profile() {
         <h1>Profile</h1>
         <Link href='/settings/Settings'>Settings</Link>
         <br/>
-        <Link href='/homepage/Home'>Home</Link> | 
-        <Link href='/homepage/Actions'>actions</Link> | 
-        <Link href='/homepage/Profile'>Profile</Link>
+        <Banner />
     </div>
   )
 }

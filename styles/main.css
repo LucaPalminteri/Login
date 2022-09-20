@@ -35,7 +35,7 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #EFEFEF;
+  background-color: #FEFEFE;
   height: 100vh;
 }
 
@@ -53,6 +53,7 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 75vw;
 }
 
 .prehome .prehome__container .inputs-container {
@@ -78,12 +79,72 @@ li {
           align-items: center;
 }
 
+.prehome .prehome__container .switch-prehome .blue-letter {
+  color: #24a0ed;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
 .prehome .prehome__container input {
+  background-color: #F6F6F6;
   margin: 10px 0;
-  padding: 5px;
+  padding: 8px;
+  border: 1px solid #CDCDCD;
+  border-radius: 2px;
+}
+
+.prehome .prehome__container input:focus {
+  outline: 1px solid #343434;
+}
+
+.prehome .prehome__container .alternative {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 2px solid #CDCDCD;
+  width: 100%;
+}
+
+.prehome .prehome__container .alternative .or {
+  background-color: #FEFEFE;
+  position: relative;
+  top: -10px;
+  padding: 0 20px;
+}
+
+.prehome .prehome__container .alternative .google-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  background-color: #F6F6F6;
+  color: #898989;
+  font-weight: bold;
+  width: 80%;
+  margin: 10px 0;
+  -webkit-box-shadow: 0 0 6px #BBB;
+          box-shadow: 0 0 6px #BBB;
 }
 
 .prehome .prehome__container button {
   width: 100%;
+  background-color: #24a0ed;
+  color: #FFF;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=main.css.map */
