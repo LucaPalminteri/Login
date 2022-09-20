@@ -1,7 +1,6 @@
 .profile {
     height: 100%;
     width: 100%;
-    background-color: red;
 
     .back-image {
         width: 100%;
@@ -21,5 +20,24 @@
         outline: 3px solid #FFF;
         background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fqph.fs.quoracdn.net%2Fmain-qimg-7ca600a4562ef6a81f4dc2bd5c99fee9-c&f=1&nofb=1');
         background-size: cover;
+    }
+
+    .profile-info {
+        padding: 0 20px;
+
+        .edit-ptofile-btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 60px;
+
+            button {
+                background-color: transparent;
+                border: 1px solid #676767;
+                padding: 4px 12px;
+                border-radius: 4px;
+            }
+        }
+    
     }
 }
