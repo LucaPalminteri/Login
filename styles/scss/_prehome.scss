@@ -1,0 +1,38 @@
+@import "./variables";
+
+.prehome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey-1;
+    height: 100vh;
+
+    .prehome__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .inputs-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    
+        .switch-prehome {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        input {
+            margin: 10px 0;
+            padding: 5px;
+        }
+    
+        button {
+            width: 100%;
+        }
+    }
+
+}

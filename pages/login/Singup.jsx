@@ -3,29 +3,33 @@ import React from 'react'
 
 function Singup() {
   return (
-    <div>
-        <h1>Singup</h1>
+    <div className='singup prehome'>
 
-        <div>
-            <input type='text' placeholder='Email'/>
-            <input type='text' placeholder='Full Name'/>
-            <input type='text' placeholder='Username'/>
-            <input type='password' placeholder='Password'/>
-        </div>
-        <hr/>
-        <div>
-            <h3>or login with google</h3>
-        </div>
+        <div className='prehome__container'>
 
-        <h5>privacy policy</h5>
+            <h1>Singup</h1>
 
-        <Link href='/login/Login'>
-            <button>Sing Up</button>
-        </Link>
+            <div className='inputs-container'>
+                <input type='text' placeholder='Email'/>
+                <input type='text' placeholder='Full Name'/>
+                <input type='text' placeholder='Username'/>
+                <input type='password' placeholder='Password'/>
+            </div>
+            <hr/>
+            <div>
+                <h3>or login with google</h3>
+            </div>
 
-        <div>
-            <p>Already have an account? </p> 
-            <Link href='/login/Login'>Log  In</Link>
+            <h5>privacy policy</h5>
+
+            <Link href='/login/Login'>
+                <button>Sing Up</button>
+            </Link>
+
+            <div  className='switch-prehome'>
+                <p>Already have an account? </p> 
+                <Link href='/login/Login'>Log  In</Link>
+            </div>
         </div>
 
     </div>
