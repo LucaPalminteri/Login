@@ -1,13 +1,16 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from "../../utils/dbconnection";
 
 function Singup() {
 
     const [users, setUsers] = useState([])
-    const [inputs,setInputs] = useState({email:"",fullName:"",username:"",password:""})
+    const email = useRef()
+    const fullName = useRef()
+    const username = useRef()
+    const password = useRef()
 
     useEffect(() => {
         fetchUsers();
@@ -27,67 +30,33 @@ function Singup() {
       .from("users")
       .insert(
         [{
-            fullname: inputs.fullName,
-            username: inputs.username,
-            email: inputs.email,
-            password: inputs.password
+            fullname: fullName.current.value,
+            username: username.current.value,
+            email: email.current.value,
+            password: password.current.value
           },],
         { upsert: false }
       );
-      setInputs({email:"",fullName:"",username:"",password:""})
+      email.current.value = ""; fullName.current.value = ""; username.current.value= ""; password.current.value = ""
       window.location.href = "/";
     } 
 
-    const handleInput = (e,i)=> {
-        switch(i){
-            case 1: setInputs(prev => ({...prev, email: e}))
-            break;
-            case 2: setInputs(prev => ({...prev, fullName: e}))
-            break;
-            case 3: setInputs(prev => ({...prev, username: e}))
-            break;
-            case 4: setInputs(prev => ({...prev, password: e}))
-            break;
-        }
-    }
-
     const validationInputs = ()=>{
-        if (inputs.email == "" || inputs.fullName == "" || inputs.username == "" || inputs.password == "") return false;
+        if (email.current.value == "" || fullName.current.value == "" || username.current.value == "" || password.current.value  == "") return false;
         return true;
     }
 
   return (
     <div className='singup prehome'>
-
         <div className='prehome__container'>
 
             <h1>Sing Up</h1>
 
             <div className='inputs-container'>
-                <input 
-                    type='email' 
-                    placeholder='Email' 
-                    value={inputs.email} 
-                    onChange={(e, i) => handleInput(e.target.value, 1)}
-                />
-                <input 
-                    type='text' 
-                    placeholder='Full Name' 
-                    value={inputs.fullName} 
-                    onChange={(e, i) => handleInput(e.target.value, 2)}
-                />
-                <input 
-                    type='text' 
-                    placeholder='Username' 
-                    value={inputs.username} 
-                    onChange={(e, i) => handleInput(e.target.value, 3)} 
-                />
-                <input 
-                    type='password' 
-                    placeholder='Password' 
-                    value={inputs.password} 
-                    onChange={(e, i) => handleInput(e.target.value, 4)} 
-                />
+                <input ref={email} type='email' placeholder='Email' />
+                <input ref={fullName} type='text' placeholder='Full Name' />
+                <input ref={username} type='text' placeholder='Username' />
+                <input ref={password} type='password' placeholder='Password' />
             </div>
             <hr/>
             <div className='alternative'>
