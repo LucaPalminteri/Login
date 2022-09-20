@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from 'next/link'
 import Banner from '../../components/Banner'
+import Header from '../../components/Header'
 
 function Home() {
   return (
     <div>
-        <h1>Home</h1>
+        <Header title={'Home'}/>
         <Banner />
     </div>
   )

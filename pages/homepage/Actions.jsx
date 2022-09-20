@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from 'next/link'
 import Banner from '../../components/Banner'
+import Header from '../../components/Header'
 
 function Actions() {
   return (
     <div>
-        <h1>Actions</h1>
+        <Header title={'Actions'}/>
         <Banner />
     </div>
   )

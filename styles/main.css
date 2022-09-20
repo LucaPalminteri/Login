@@ -157,11 +157,24 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: grey;
-  height: 50px;
+  background-color: #FFF;
+  -webkit-box-shadow: 0 -5px 10px #EFEFEF;
+          box-shadow: 0 -5px 10px #EFEFEF;
+  height: 70px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.header {
+  background-color: #FFF;
+  -webkit-box-shadow: 0 5px 10px #EFEFEF;
+          box-shadow: 0 5px 10px #EFEFEF;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 10px;
 }
 /*# sourceMappingURL=main.css.map */
