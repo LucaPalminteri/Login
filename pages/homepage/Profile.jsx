@@ -2,9 +2,18 @@ import React from 'react'
 import Banner from '../../components/Banner'
 import Header from '../../components/Header';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useContext } from 'react';
+import { UserContext } from '../../utils/ThemeContext';
 
 function Profile() {
+
+  const userContext = useContext(UserContext)
+  const user = userContext.getUser();
+
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem("token");
+  }
+
   return (
     <div>
         <Header title={'Profile'}/>
@@ -18,8 +27,8 @@ function Profile() {
               </Link>
             </div>
 
-            <h3>Name</h3>
-            <h4>@username</h4>
+            <h3>{user.fullname || "Name"}</h3>
+            <h4>@{user.username || "username"}</h4>
             <p>Description</p>
           </div>
         </div>

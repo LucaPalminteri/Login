@@ -1,18 +1,26 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { supabase } from "../../utils/dbconnection";
+import { UserContext } from '../../utils/ThemeContext';
+
 
 function Login() {
 
     const [users, setUsers] = useState([])
+    const [isValidationOk,setIsValidationOk] = useState(false)
     const username = useRef()
     const password = useRef()
+    const userContext = useContext(UserContext)
+
+    console.log(userContext.getUser());
 
     useEffect(() => {
         fetchUsers();
+        
       }, []);
+
 
     async function fetchUsers() {
         const { data } = await supabase.from("users").select();
@@ -20,14 +28,17 @@ function Login() {
       }
 
     const validationInputs = ()=>{
+        console.log("clickeado");
         if (username.current.value == "" || password.current.value == "") return ;
         logIn()
     }
 
     const logIn = () => {
         users.map(user => {
-            if((username.current.value == user.username || username.current.value == user.email) && password.current.value == user.password) window.location.href = "/homepage/Home";
-            else console.log("not fine");
+            if((username.current.value == user.username || username.current.value == user.email) && password.current.value == user.password) {
+                userContext.setUser(user)
+            }
+            else console.log("no");  //window.location.href = '/'
         })
     }
 
@@ -40,7 +51,11 @@ function Login() {
                 <input ref={username} type='text' placeholder='Username or email' />
                 <input ref={password} type='password' placeholder='Password' />
             </div>
+            <Link href='/homepage/Home'>
             <button onClick={validationInputs}>Log In</button>
+            </Link> 
+
+            
             <hr/>
             <div className='alternative'>
                 <span className='or'>OR</span>
