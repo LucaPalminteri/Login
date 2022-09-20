@@ -1,0 +1,25 @@
+.profile {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+
+    .back-image {
+        width: 100%;
+        height: 140px;
+        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fback_origin_pic%2F02%2F65%2F79%2Ff28ff4f91e07f8e16d3592115bd6811a.jpg&f=1&nofb=1');
+        background-size: cover;
+    }
+
+    .profile-image {
+        position: absolute;
+        top: 150px;
+        left: 40px;
+        border-radius: 100px;
+        height: 100px;
+        width: 100px;
+        background-color: #EFEFEF;
+        outline: 3px solid #FFF;
+        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fqph.fs.quoracdn.net%2Fmain-qimg-7ca600a4562ef6a81f4dc2bd5c99fee9-c&f=1&nofb=1');
+        background-size: cover;
+    }
+}
