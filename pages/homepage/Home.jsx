@@ -1,14 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
+import Banner from '../../components/Banner'
 
 function Home() {
   return (
     <div>
         <h1>Home</h1>
-        <Link href='/homepage/Home'>Home</Link> | 
-        <Link href='/homepage/Actions'>actions</Link> | 
-        <Link href='/homepage/Profile'>Profile</Link>
-
+        <Banner />
     </div>
   )
 }

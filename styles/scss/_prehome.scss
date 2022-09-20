@@ -1,0 +1,85 @@
+@import "./variables";
+
+.prehome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey-1;
+    height: 100vh;
+
+    .prehome__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 75vw;
+
+        .inputs-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    
+        .switch-prehome {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .blue-letter {
+                color: #24a0ed;
+                font-weight: bold;
+                padding-left: 5px;
+            }
+        }
+    
+        input {
+            background-color: #F6F6F6;
+            margin: 10px 0;
+            padding: 8px;   
+            border: 1px solid #CDCDCD;
+            border-radius: 2px;
+
+            &:focus {
+                outline: 1px solid #343434;
+            }
+        }
+
+        .alternative {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 2px solid #CDCDCD;
+            width: 100%;
+            
+            .or {
+                background-color: $grey-1;
+                position: relative;
+                top: -10px;
+                padding: 0 20px;
+            }
+
+            .google-btn {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                padding: 0;
+                background-color: #F6F6F6;
+                color: #898989;
+                font-weight: bold;
+                width: 80%;
+                margin: 10px 0;
+                box-shadow: 0 0 6px #BBB;
+            }
+        }
+    
+        button {
+            width: 100%;
+            background-color: #24a0ed ;
+            color: #FFF;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+
+}
