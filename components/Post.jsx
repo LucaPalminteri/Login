@@ -10,9 +10,11 @@ import { useState } from 'react';
 
 function Post() {
 
-    const [toggle, setToggle] = useState(false)
+    const [toggleLightBulb, setToggleLightBulb] = useState(false)
+    const [toggleBookmark, setToggleBookmark] = useState(false)
 
-    const handleToggle = () => setToggle(prev => !prev)
+    const handleToggleLightBulb = () => setToggleLightBulb(prev => !prev)
+    const handleBookmark = () => setToggleBookmark(prev => !prev)
 
   return (
     <div className='post'>
@@ -32,17 +34,26 @@ function Post() {
         </div>
         <div className='actions-post'>
             {
-            toggle ? 
-            <div onClick={handleToggle}>
+            toggleLightBulb ? 
+            <div onClick={handleToggleLightBulb}>
                 <EmojiObjectsRoundedIcon className='lightbulb'  fontSize='large' /> 
             </div> :
-            <div onClick={handleToggle}>
+            <div onClick={handleToggleLightBulb}>
                 <EmojiObjectsOutlinedIcon className='lightbulb' fontSize='large' />
             </div>
             }
-            <ChatBubbleOutlineRoundedIcon className='action-icon' fontSize='large' />
-            <ShareRoundedIcon className='action-icon' fontSize='large' />
-            <BookmarkBorderRoundedIcon className='action-icon' fontSize='large' />
+            <ChatBubbleOutlineRoundedIcon className='action-icon' fontSize='medium' />
+            <ShareRoundedIcon className='action-icon' fontSize='medium' />
+
+            {
+                toggleBookmark ?
+                <div onClick={handleBookmark} className='action-icon' >
+                    <BookmarkIcon fontSize='medium' /> 
+                </div> :
+                <div className='action-icon' onClick={handleBookmark}>
+                    <BookmarkBorderRoundedIcon fontSize='medium'/>
+                </div>
+            }
         </div>
         <h6>4 HOURS AGO</h6>
     </div>

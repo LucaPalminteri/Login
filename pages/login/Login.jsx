@@ -1,25 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from "../../utils/dbconnection";
-import { UserContext } from '../../utils/ThemeContext';
 import Router from 'next/router';
 
 
 function Login() {
 
     const [users, setUsers] = useState([])
-    const [isValidationOk,setIsValidationOk] = useState(false)
     const username = useRef()
     const password = useRef()
-    const userContext = useContext(UserContext)
-
-    console.log(userContext.getUser());
 
     useEffect(() => {
         fetchUsers();
-        
       }, []);
 
     const sendProps = (pUser) => {
@@ -29,14 +23,12 @@ function Login() {
         })
     }
 
-
     async function fetchUsers() {
         const { data } = await supabase.from("users").select();
         setUsers(data);
       }
 
     const validationInputs = ()=>{
-        console.log("clickeado");
         if (username.current.value == "" || password.current.value == "") return ;
         logIn()
     }
@@ -44,7 +36,6 @@ function Login() {
     const logIn = () => {
         users.map(user => {
             if((username.current.value == user.username || username.current.value == user.email) && password.current.value == user.password) {
-                userContext.setUser(user)
                 sendProps(user)
             }
             else console.log("no");  //window.location.href = '/'

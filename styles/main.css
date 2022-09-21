@@ -158,8 +158,6 @@ li {
       -ms-flex-align: center;
           align-items: center;
   background-color: #FFF;
-  -webkit-box-shadow: 0 -5px 10px #EFEFEF;
-          box-shadow: 0 -5px 10px #EFEFEF;
   height: 70px;
   position: fixed;
   bottom: 0;
@@ -177,9 +175,11 @@ li {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #FFF;
-  -webkit-box-shadow: 0 5px 10px #EFEFEF;
-          box-shadow: 0 5px 10px #EFEFEF;
+  z-index: 10;
 }
 
 .header h1 {
@@ -188,6 +188,7 @@ li {
 }
 
 .profile {
+  padding: 60px 0;
   height: 100%;
   width: 100%;
 }
@@ -267,7 +268,7 @@ li {
 }
 
 .home {
-  padding-bottom: 100px;
+  padding: 58px 0;
 }
 
 .post {
@@ -329,6 +330,10 @@ li {
 .post .actions-post .action-icon:nth-child(4) {
   position: absolute;
   right: 10px;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-name: showL;
+          animation-name: showL;
 }
 
 .post h6 {
