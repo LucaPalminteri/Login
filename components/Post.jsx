@@ -8,13 +8,16 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Image from 'next/image';
 import { useState } from 'react';
 
-function Post() {
+
+function Post({username,profile_img,post_img,lights}) {
 
     const [toggleLightBulb, setToggleLightBulb] = useState(false)
     const [toggleBookmark, setToggleBookmark] = useState(false)
 
     const [auxCont,setAuxCont] = useState(0)
     const [showAux,setShowAux] = useState(false)
+
+    if (toggleLightBulb) lights++
 
     const handleToggleLightBulb = () => setToggleLightBulb(prev => !prev)
     const handleBookmark = () => setToggleBookmark(prev => !prev)
@@ -36,17 +39,18 @@ function Post() {
   return (
     <div className='post'>
         <div className='post__header'>
-            <Image 
+            {/* <Image 
                 className='header-img'
-                src={'/anon.jpg'}
+                src={profile_img}
                 alt=''
                 width={50}
                 height={50}
-            />
-            <h3>@username</h3>
+            /> */}
+            <div className='header-img' style={{width:50,height:50,backgroundImage: `url(${profile_img})`, backgroundSize: 'cover'}}></div>
+            <h3>@{username}</h3>
             <MoreHorizIcon fontSize='large' className='action-icon' />
         </div>
-        <div onClick={handlePost} className='idea-post'>
+        <div onClick={handlePost} className='idea-post' style={{backgroundImage: `url(${post_img})`, backgroundSize: 'cover'}}>
             {toggleLightBulb && showAux &&<EmojiObjectsRoundedIcon className='lightbulb'  fontSize='large' /> }
         </div>
         <div className='actions-post'>
@@ -72,6 +76,7 @@ function Post() {
                 </div>
             }
         </div>
+        <h6 style={{fontSize: 16}}>{lights} Lights</h6>
         <h6>4 HOURS AGO</h6>
     </div>
   )
