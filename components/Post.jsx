@@ -13,8 +13,25 @@ function Post() {
     const [toggleLightBulb, setToggleLightBulb] = useState(false)
     const [toggleBookmark, setToggleBookmark] = useState(false)
 
+    const [auxCont,setAuxCont] = useState(0)
+    const [showAux,setShowAux] = useState(false)
+
     const handleToggleLightBulb = () => setToggleLightBulb(prev => !prev)
     const handleBookmark = () => setToggleBookmark(prev => !prev)
+
+    const handlePost = () => {
+        setAuxCont(prev=> prev+1)
+        if(auxCont == 1) {
+            setToggleLightBulb(prev => !prev)
+            setShowAux(true)
+        }
+        setTimeout(()=>{
+            if(auxCont != 1) setAuxCont(0)
+            setShowAux(false)
+        },400)
+        console.log(auxCont);
+    }
+
 
   return (
     <div className='post'>
@@ -29,8 +46,8 @@ function Post() {
             <h3>@username</h3>
             <MoreHorizIcon fontSize='large' className='action-icon' />
         </div>
-        <div className='idea-post'> 
-
+        <div onClick={handlePost} className='idea-post'>
+            {toggleLightBulb && showAux &&<EmojiObjectsRoundedIcon className='lightbulb'  fontSize='large' /> }
         </div>
         <div className='actions-post'>
             {
