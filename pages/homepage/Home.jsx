@@ -1,21 +1,22 @@
 import React from 'react'
 import Banner from '../../components/Banner'
 import Header from '../../components/Header'
-import { useContext } from 'react';
-import { UserContext } from '../../utils/ThemeContext';
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import Post from '../../components/Post';
 
 function Home() {
 
-  const user = useContext(UserContext)
-
-
-    console.log(user.getUser());
-
+  const createPosts = (cant) => {
+    const arrPosts = [];
+    for(let i=0;i<cant;i++) {
+      arrPosts.push(<Post key={i}/>)
+    }
+    return arrPosts
+  }
+  
   return (
-    <div>
+    <div className='home'>
         <Header title={'Home'}/>
-        <LightbulbOutlinedIcon />
+        {createPosts(10)}
         <Banner />
     </div>
   )
