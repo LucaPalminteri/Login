@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Login from './login/Login'
-import { useState } from 'react'
-import MyApp from '../utils/MyApp'
 
 
 export default function Home() {

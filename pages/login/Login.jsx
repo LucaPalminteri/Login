@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect, useRef, useContext } from 'react';
 import { supabase } from "../../utils/dbconnection";
 import { UserContext } from '../../utils/ThemeContext';
+import Router from 'next/router';
 
 
 function Login() {
@@ -21,6 +22,13 @@ function Login() {
         
       }, []);
 
+    const sendProps = (pUser) => {
+        Router.push({
+            pathname: "/homepage/Profile",
+            query: pUser
+        })
+    }
+
 
     async function fetchUsers() {
         const { data } = await supabase.from("users").select();
@@ -37,6 +45,7 @@ function Login() {
         users.map(user => {
             if((username.current.value == user.username || username.current.value == user.email) && password.current.value == user.password) {
                 userContext.setUser(user)
+                sendProps(user)
             }
             else console.log("no");  //window.location.href = '/'
         })
@@ -51,9 +60,12 @@ function Login() {
                 <input ref={username} type='text' placeholder='Username or email' />
                 <input ref={password} type='password' placeholder='Password' />
             </div>
-            <Link href='/homepage/Home'>
-            <button onClick={validationInputs}>Log In</button>
-            </Link> 
+            <a onClick={(e) => {
+                e.preventDefault()
+                Router.push({pathname: "/homepage/Profile",query: {username: "Luca"}})
+            }}>
+                <button onClick={validationInputs}>Log In</button>
+            </a>
 
             
             <hr/>

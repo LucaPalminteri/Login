@@ -2,17 +2,34 @@ import React from 'react'
 import Banner from '../../components/Banner'
 import Header from '../../components/Header';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../utils/ThemeContext';
+import { useRouter } from 'next/router';
 
 function Profile() {
 
-  const userContext = useContext(UserContext)
-  const user = userContext.getUser();
+  const [user,setUser] = useState({})
 
-  if (typeof window !== 'undefined') {
-    const token = localStorage.getItem("token");
-  }
+  const router = useRouter()
+  const {
+    query: {fullname}
+  } = router
+
+  useEffect(()=> {
+    setUser(router.query)
+  },[])
+  
+
+  console.log(user);
+
+  const props = {}
+
+  // const userContext = useContext(UserContext)
+  // const user = userContext.getUser();
+
+  // if (typeof window !== 'undefined') {
+  //   const token = localStorage.getItem("token");
+  // }
 
   return (
     <div>
@@ -27,8 +44,8 @@ function Profile() {
               </Link>
             </div>
 
-            <h3>{user.fullname || "Name"}</h3>
-            <h4>@{user.username || "username"}</h4>
+            <h3>{ "Name"}</h3>
+            <h4>@{ "username"}</h4>
             <p>Description</p>
           </div>
         </div>
